@@ -5,7 +5,7 @@ const argv = require(`yargs`)
             alias: `d`,
             des: `Descripcion de la tarea por hacer`
         }
-    }).command(`actualiza`, `Actualiza el estado completado de una tarea`, {
+    }).command(`actualizar`, `Actualiza el estado completado de una tarea`, {
         descripcion: {
             demand: true,
             alias: `d`,
