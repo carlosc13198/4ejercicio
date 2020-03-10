@@ -46,8 +46,40 @@ const actualizar = (descripcion, completado = true) => {
         return false;
     }
 }
+
+// const borrar = (descripcion) => {
+//     cargarDB();
+//     let index = listadoPorHacer.findIndex(tarea => tarea.descripcion === descripcion);
+//     let temp = [];
+
+//     if (index >= 0) {
+//         for (let i = 0; i < listadoPorHacer.length; i++) {
+//             if (i !== index) {
+//                 temp.push(listadoPorHacer[i]);
+//             }
+//         }
+//         listadoPorHacer = temp;
+//         guardardb();
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+const borrar = (descripcion) => {
+    cargarDB();
+
+    let nuevoListado = listadoPorHacer.filter(tarea => tarea.descripcion !== descripcion);
+    if (listadoPorHacer.length === nuevoListado.length) {
+        return false;
+    } else {
+        listadoPorHacer = nuevoListado;
+        guardardb();
+        return true;
+    }
+}
 module.exports = {
     crear,
     getListado,
-    actualizar
+    actualizar,
+    borrar
 }
